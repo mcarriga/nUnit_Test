@@ -14,7 +14,7 @@ namespace nUnit_Example
         public void test1() {
             Console.WriteLine("Test1");
             System.Diagnostics.Debug.WriteLine("Test1");
-            Assert.IsTrue(true);
+            Assert.IsTrue(false);
         }
 
         [TestCase, ZephyrTest("789999")]
@@ -22,6 +22,7 @@ namespace nUnit_Example
             Console.WriteLine("Test2");
             System.Diagnostics.Debug.WriteLine("Test2");
             Assert.IsFalse(false);
+            
         }
     }
 }

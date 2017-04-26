@@ -22,10 +22,24 @@ namespace nUnit_Example
 
         public void AfterTest(ITest test)
         {
+            ZephyrFixtureAttribute obj = test.Fixture as ZephyrFixtureAttribute;
             if (test.IsSuite == false)
             {
                 Console.WriteLine(_ZypherTestId);
                 System.Diagnostics.Debug.WriteLine(_ZypherTestId);
+            }
+            
+            //System.Diagnostics.Debug.WriteLine(TestContext.CurrentContext.Result.Outcome);
+            switch (TestContext.CurrentContext.Result.Outcome.Status) {
+                case TestStatus.Failed :
+                    System.Diagnostics.Debug.WriteLine(_ZypherTestId + " Failed "+obj.getJiraUrl());
+                    break;
+                case TestStatus.Passed:
+                    System.Diagnostics.Debug.WriteLine(_ZypherTestId + " Passed " + obj.getJiraUrl());
+                    break;
+                default:
+
+                    break;
             }
         }
 

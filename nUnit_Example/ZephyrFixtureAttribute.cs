@@ -8,6 +8,9 @@ namespace nUnit_Example
     public class ZephyrFixtureAttribute : Attribute, ITestAction
     {
         private string _JiraUrl;
+        public string getJiraUrl() {
+            return _JiraUrl;
+        }
 
         public ZephyrFixtureAttribute(string JiraUrl) {
             _JiraUrl = JiraUrl;
